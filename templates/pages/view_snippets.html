@@ -27,7 +27,7 @@
                 <tbody>
                 {% for snippet in snippets %}
                 <tr>
-                    <td scope="row">1</td>
+                    <td scope="row">{{ snippet.id }}</td>
                     <td><a href="{{ snippet.id }}">{{ snippet.name }}</a></td>
                     <td>{{ snippet.creation_date }}</td>
                 </tr>
