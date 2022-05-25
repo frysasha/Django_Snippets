@@ -22,6 +22,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Название</th>
                     <th scope="col">Дата создания</th>
+                    <th scope="col">Действия</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,7 @@
                     <td scope="row">{{ snippet.id }}</td>
                     <td><a href="{{ snippet.id }}">{{ snippet.name }}</a></td>
                     <td>{{ snippet.creation_date }}</td>
+                    <td><a href="/snippets/edit/{{ snippet.id }}">Изменить</a> | <a href="/snippets/delete/{{ snippet.id }}">Удалить</a> </td>
                 </tr>
                 {% endfor %}
                 </tbody>
