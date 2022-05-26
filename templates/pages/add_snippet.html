@@ -29,6 +29,13 @@
                         {{ form.code }}
                     </div>
                 </div>
+                {% if request.user.is_authenticated %}
+                <div class="form-group row">
+                    <div class="col">
+                        Сделать приватным {{ form.private }}
+                    </div>
+                </div>
+                {% endif %}
                 <div class="form-group row">
                     <div class="col-8">
                         <input type="submit" class="btn btn-primary btn-block" value="Сохранить">

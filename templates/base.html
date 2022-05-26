@@ -54,17 +54,19 @@
                         сниппет</a></li>
                     <li class="form-inline"><a class="btn btn-outline-info" href="{% url 'snippets_list' %}">Посмотреть
                         сниппеты</a></li>
+                    {% if request.user.is_authenticated %}
                     <li class="form-inline"><a class="btn btn-outline-info" href="{% url 'my_snippets_list' %}">Мои
                         сниппеты</a></li>
+                    {% endif %}
                 </ul>
             </div>
             {% if request.user.is_authenticated %}
             <span style="color:white">
                 Welcome, {{request.user.username }}
-                <a href="{% url 'logout' %}">Logout</a>
+                <a href="{% url 'logout' %}?next={{request.path}}">Logout</a>
             </span>
             {% else %}
-            <form method="post" action="{% url 'login' %}">{% csrf_token %}
+            <form method="post" action="{% url 'login' %}?next={{request.path}}">{% csrf_token %}
                 <input name="username" type="text" placeholder="username">
                 <input name="password" type="password" placeholder="password">
                 <button type="submit">login</button>
