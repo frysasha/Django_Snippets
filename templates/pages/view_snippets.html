@@ -1,5 +1,6 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
+{% load my_tags %}
 {% block main %}
 <div class="container">
     <div class="row">
@@ -32,7 +33,7 @@
                     <td scope="row">{{ snippet.id }}</td>
                     <td><a href="{{ snippet.id }}">{{ snippet.name }}</a></td>
                     <td>{{ snippet.creation_date }}</td>
-                    <td>{{ snippet.user }}</td>
+                    <td>{{ snippet.user|is_empty:'Аноним' }}</td>
                     {% if request.user == snippet.user %}
                         <td><a href="/snippets/edit/{{ snippet.id }}">Изменить</a> | <a href="/snippets/delete/{{ snippet.id }}">Удалить</a> </td>
                     {% endif %}
